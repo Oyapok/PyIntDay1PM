@@ -43,7 +43,7 @@ class Point:
 
     y=property(getY, setY)
     
-    def parsePoint(text): # class method
+    def parsePoint(text): # class method (or static method)
         import re
         mo=re.match(r"<(\d+),(\d+)>", text)
         if mo:
@@ -67,10 +67,20 @@ class Point:
     
     # parsePoint=classmethod(parsePoint)
     
+    
+print(Point.counter)
 
+p1=Point(5,6)
+print(p1)
+p1.clear() # "instance" method
+print(p1)
+print(Point.counter)
+del p1
+print(Point.counter)
 
-p3=Point.parsePoint("<23,56>")
-print(p3, type(p3))
+p3=Point.parsePoint("<23,56>") # "class" or "static" method
+print(p3, type(p3)) 
+print(Point.counter)
 
 
 

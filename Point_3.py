@@ -1,7 +1,8 @@
 class Point:
     def __init__(self, vx, vy):
-        self.__x=vx   # attribute x is defined here
-        self.__y=vy   # attribute y is defined here
+        self.__x=vx   # attribute __x is defined here
+        self.__y=vy   # attribute __y is defined here
+        # self.z=vx+vy
         
     def __str__(self):
         return f"<{self.__x},{self.__y}>"
@@ -36,8 +37,16 @@ class Point:
 
     y=property(getY, setY)
     
+    # @property()
+    # def y(self):
+    #     return self.__y
     
-p1=Point(10,0)
+    # @y.setter
+    # def y(self.val):
+    #     if isinstance(o, t)
+    
+    
+p1=Point(10,20)
 print(p1.x)
 p1.x=26
 print(p1)

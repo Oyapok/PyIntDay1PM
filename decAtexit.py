@@ -1,4 +1,4 @@
-
+# Decorator concept
 import atexit
 
 @atexit.register
