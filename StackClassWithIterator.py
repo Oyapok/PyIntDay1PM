@@ -66,9 +66,11 @@ class Stack:
         
     def __eq__(self, other):# Return a bool: True if the self == other False if not
         return self.maxi == other.maxi and self.content == other.content
+    
     def __iter__(self):
         self.ix=len(self)-1
         return self
+    
     def __next__(self):
         if self.ix >= 0:
             temp=self.content[self.ix]
@@ -87,4 +89,5 @@ if __name__ == "__main__":
     for e in s2:
         print(e)
     
-    
+    l=list(map(lambda a:a**2,s2)) # lambda is how to define simple function
+    print(l)

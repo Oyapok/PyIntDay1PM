@@ -66,55 +66,66 @@ class Stack:
         
     def __eq__(self, other):# Return a bool: True if the self == other False if not
         return self.maxi == other.maxi and self.content == other.content
-
+    
+    def __iter__(self):
+        return self.content.__iter__()
 
 if __name__ == "__main__":
-    s2=Stack(3)
-    s2.pop()
+    s2=Stack(10)
+    # s2.pop()
     s2.push(200)
     s2.push(300)
-    print(s2) # (2/4) [200,300]
+    print(s2) # (2/10) [200,300]
     s2.push(56)
+    # print(s2.peek())
     s2.push(99)
+    print(s2) # (4/10) [56,99]
+    for e in s2:
+        print(e)
+    #
+    # print(min(s2))
+    # # 1) iterator=s2.__iter__()
+    # # 2) iterator.__next__()
+    # #
     
     
-    try:
-        s1=Stack(3)
+    # try:
+    #     s1=Stack(3)
 
-        s1.push(200)
-        s1.push(300)
-        print(s1) # (2/4) [200,300]
-        s1.push(56)
-        s1.push(99)
-        # s1.push(56) # Error should be reported: the stack is full
-        print(s1) # (4/4) [200,300,56,99]
+    #     s1.push(200)
+    #     s1.push(300)
+    #     print(s1) # (2/4) [200,300]
+    #     s1.push(56)
+    #     s1.push(99)
+    #     # s1.push(56) # Error should be reported: the stack is full
+    #     print(s1) # (4/4) [200,300,56,99]
         
-        print(f"Size of s1 {len(s1)}") # s1.__len__()
+    #     print(f"Size of s1 {len(s1)}") # s1.__len__()
         
-        top=s1.pop()
-        print(top) # 99
-        print(s1) # (3/4) [200,300,56]
-        top=s1.pop()
-        print(top) # 56
-        print(s1) # (2/4) [200,300]
-        top=s1.peek()
-        print(top) # 300
-        print(s1) # (2/4) [200,300]
-        top=s1.peek()
-        print(top) # 300
-        print(s1) # (2/4) [200,300]
+    #     top=s1.pop()
+    #     print(top) # 99
+    #     print(s1) # (3/4) [200,300,56]
+    #     top=s1.pop()
+    #     print(top) # 56
+    #     print(s1) # (2/4) [200,300]
+    #     top=s1.peek()
+    #     print(top) # 300
+    #     print(s1) # (2/4) [200,300]
+    #     top=s1.peek()
+    #     print(top) # 300
+    #     print(s1) # (2/4) [200,300]
 
-        s2=Stack(4)
-        s2.push(200)
-        s2.push(300)
+    #     s2=Stack(4)
+    #     s2.push(200)
+    #     s2.push(300)
         
-        print(s1==s2)
-    except StackSizeError as ex:
-        print(f"Exception received: {ex} !!")
-    except StackFullError as ex:
-        print(f"Exception received: {ex} !!")
-    except StackEmptyError as ex:
-        print(f"Exception received: {ex} !!")
+    #     print(s1==s2)
+    # except StackSizeError as ex:
+    #     print(f"Exception received: {ex} !!")
+    # except StackFullError as ex:
+    #     print(f"Exception received: {ex} !!")
+    # except StackEmptyError as ex:
+    #     print(f"Exception received: {ex} !!")
 
 
 

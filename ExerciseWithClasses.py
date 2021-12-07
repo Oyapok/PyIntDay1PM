@@ -24,3 +24,60 @@ with open("data.txt") as fic:
         print(line)
 
 '''
+
+# import pickle
+
+class Record:
+    def __init__(self,name,time,date,temperature):
+        self.city=name
+        self.time=time
+        self.date=date
+        self.temperature=temperature
+        
+    def __str__(self):
+        return str("City of {self.city} at {self.time} on the {self.date} the temperature was {self.temperature}°C")
+    
+    def parseRecord(text):
+        c,t,d,temp=text.split(";")
+        return Record(c, t, d, float(temp))
+        
+
+class ListOfRecord:
+    def __init__(self):
+        self.data=[] 
+        
+    def __str__(self):
+        return str(self.data)
+       
+    def addRecord(self, record):
+        self.data.append(record)
+    
+    @staticmethod
+    def parseFile(fname):
+        recList = ListOfRecord()
+        with open(fname) as fic:
+            for line in fic:
+                recList.addRecord(line)
+        return recList
+
+if __name__ == "__main__":
+      
+    records=ListOfRecord.parseFile("measures.txt")
+    print(records[1])
+    
+    
+    record1=Record.parseRecord(ListOfRecord.da
+
+
+# with open("measures.txt") as fic:
+#     d=fic.readline()
+#     # for line in fic:
+#     #     print(line)
+    
+#     print(fic)
+# print(d, type(d))
+
+# class Data:
+#     def __init__(self,name,time,date,t):
+        
+#         self.content[]
